@@ -75,10 +75,40 @@ window.onload = () => {
     xhr.send()
   }
 
-  // Atrelando o disparo de `consumeViaWS` ao clique no botão #ws
+  // Atrelando o disparo de `consumeViaAJAX` ao clique no botão #ajax
   document.querySelector('#ajax').onclick = e => {
     e.preventDefault()
     consumeViaAJAX(document.querySelector('#cep').value)
   }
   /* /AJAX */
+
+
+  /* FetchAPI */
+  // Definindo um novo callback (`cb3`)
+  const cb3 = res => {
+    document.querySelector('#uf').innerText = res.uf
+    document.querySelector('#localidade').innerText = res.localidade
+    document.querySelector('#bairro').innerText = res.bairro
+    document.querySelector('#logradouro').innerText = res.logradouro
+  }
+
+  // Definindo um fetch
+  const fetchAddress = url => {
+    fetch(url)
+      .then(res => res.json())
+      .then(json => cb3(json))
+  }
+
+  // Definindo a execução do fetch
+  const consumeViaFetch = cep => {
+    const url = `https://viacep.com.br/ws/${cep}/json`
+    fetchAddress(url)
+  }
+
+  // Atrelando o disparo de `consumeViaFetch` ao clique no botão #fetch
+  document.querySelector('#fetch').onclick = e => {
+    e.preventDefault()
+    consumeViaFetch(document.querySelector('#cep').value)
+  }
+  /* /FetchAPI */
 }
