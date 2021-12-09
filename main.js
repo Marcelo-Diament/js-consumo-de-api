@@ -111,4 +111,39 @@ window.onload = () => {
     consumeViaFetch(document.querySelector('#cep').value)
   }
   /* /FetchAPI */
+
+
+  /* Axios */
+  // Importando axios via CDN
+  const scriptAxios = document.createElement('script')
+  scriptAxios.src = `https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js`
+  document.querySelector('head').appendChild(scriptAxios)
+
+  // Definindo um novo callback (`cb4`)
+  const cb4 = res => {
+    document.querySelector('#uf').innerText = res.uf
+    document.querySelector('#localidade').innerText = res.localidade
+    document.querySelector('#bairro').innerText = res.bairro
+    document.querySelector('#logradouro').innerText = res.logradouro
+  }
+
+  // Definindo request com Axios
+  const makeAxiosRequest = url => {
+    axios.get(url)
+      .then(res => cb4(res.data))
+      .catch(error => console.error(error))
+  }
+
+  // Definindo a execução da request com Axios
+  const consumeViaAxios = cep => {
+    const url = `https://viacep.com.br/ws/${cep}/json`
+    makeAxiosRequest(url)
+  }
+
+  // Atrelando o disparo de `consumeViaAxios` ao clique no botão #axios
+  document.querySelector('#axios').onclick = e => {
+    e.preventDefault()
+    consumeViaAxios(document.querySelector('#cep').value)
+  }
+  /* /Axios */
 }

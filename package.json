@@ -1,0 +1,23 @@
+{
+  "name": "js-consumo-de-api",
+  "version": "1.0.0",
+  "description": "Modos de consumir uma API - WS, AJAX, FETCH e AXIOS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcelo-Diament/js-consumo-de-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcelo-Diament/js-consumo-de-api/issues"
+  },
+  "homepage": "https://github.com/Marcelo-Diament/js-consumo-de-api#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
