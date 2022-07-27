@@ -20,7 +20,9 @@ window.onload = () => {
   // Atrelando o disparo de `consumeViaWS` ao clique no botão #ws
   document.querySelector('#ws').onclick = e => {
     e.preventDefault()
+    console.time('ws')
     consumeViaWS(document.querySelector('#cep').value)
+    console.timeEnd('ws')
   }
   /* /WS */
 
@@ -78,7 +80,9 @@ window.onload = () => {
   // Atrelando o disparo de `consumeViaAJAX` ao clique no botão #ajax
   document.querySelector('#ajax').onclick = e => {
     e.preventDefault()
+    console.time('ajax')
     consumeViaAJAX(document.querySelector('#cep').value)
+    console.timeEnd('ajax')
   }
   /* /AJAX */
 
@@ -108,7 +112,9 @@ window.onload = () => {
   // Atrelando o disparo de `consumeViaFetch` ao clique no botão #fetch
   document.querySelector('#fetch').onclick = e => {
     e.preventDefault()
+    console.time('fetch')
     consumeViaFetch(document.querySelector('#cep').value)
+    console.timeEnd('fetch')
   }
   /* /FetchAPI */
 
@@ -143,7 +149,9 @@ window.onload = () => {
   // Atrelando o disparo de `consumeViaAxios` ao clique no botão #axios
   document.querySelector('#axios').onclick = e => {
     e.preventDefault()
+    console.time('axios')
     consumeViaAxios(document.querySelector('#cep').value)
+    console.timeEnd('axios')
   }
   /* /Axios */
 }
